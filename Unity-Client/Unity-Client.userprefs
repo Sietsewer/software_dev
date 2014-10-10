@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InMessageBehaviour.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Networking.cs" Line="35" Column="25" />
+      <File FileName="Assets\Scripts\Interface.cs" Line="10" Column="47" />
+      <File FileName="Assets\Scripts\InMessage.cs" Line="27" Column="12" />
+      <File FileName="Assets\Scripts\MessageHandler.cs" Line="11" Column="31" />
+      <File FileName="Assets\Scripts\InMessageBehaviour.cs" Line="16" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
