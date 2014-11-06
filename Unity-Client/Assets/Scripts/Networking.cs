@@ -23,6 +23,7 @@ public class Networking : MonoBehaviour
 		private float counter = 0.0f;
 		public float readDelay = 1.0f;
 		private bool socketReady = false;
+		public LampColourManager light;
 
 		void Start ()
 		{
@@ -62,6 +63,9 @@ public class Networking : MonoBehaviour
 						return;
 
 				if (message.Length == 4) {
+						InMessage receivedMessage = MessageHandler.stringToInMessage (message);
+						this.light.changeColour (receivedMessage.setting);
+
 						Debug.Log (MessageHandler.stringToInMessage (message).toString ());
 				} else {
 						Debug.Log ("RECEIVED: " + message);
