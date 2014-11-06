@@ -31,7 +31,7 @@ public class Networking : MonoBehaviour
 						Debug.Log ("Connection made.");
 						connected = true;
 				} catch (SocketException e) {
-						Debug.Log ("Connection failed to start! : " + e.ToString());
+						Debug.Log ("Connection failed to start! : " + e.ToString ());
 						connected = false;
 				}
 				if (connected) {
@@ -62,15 +62,21 @@ public class Networking : MonoBehaviour
 						return;
 
 				if (message.Length == 4) {
-						Debug.Log (MessageHandler.getMessage (message).toString ());
+						Debug.Log (MessageHandler.stringToInMessage (message).toString ());
 				} else {
 						Debug.Log ("RECEIVED: " + message);
 				}
 		}
-
+		
+		public void forceRead ()
+		{
+				Debug.Log ("Forcing read message...");
+				receiveMessage (streamReader.ReadLine ());
+		}
+	
 		public void sendMessage (string message)
 		{
-		if (!socketReady ) 
+				if (!socketReady) 
 						return;
 				Debug.Log ("SENDING: " + message);
 				streamWriter.WriteLine (message);

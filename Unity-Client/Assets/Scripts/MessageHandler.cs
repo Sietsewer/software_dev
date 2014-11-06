@@ -3,7 +3,8 @@ using System.Collections;
 
 public static class MessageHandler
 {
-		public static InMessage getMessage (string message)
+
+		public static InMessage stringToInMessage (string message)
 		{
 		InMessage im = new InMessage();
 

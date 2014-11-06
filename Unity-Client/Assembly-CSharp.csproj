@@ -51,6 +51,8 @@
      <Compile Include="Assets\Scripts\Interface.cs" />
      <Compile Include="Assets\Scripts\MessageHandler.cs" />
      <Compile Include="Assets\Scripts\Networking.cs" />
+     <Compile Include="Assets\Scripts\OutMessage.cs" />
+     <Compile Include="Assets\Scripts\OutMessageBehaviour.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />

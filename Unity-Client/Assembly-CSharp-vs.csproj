@@ -51,6 +51,8 @@
      <Compile Include="Assets\Scripts\Interface.cs" />
      <Compile Include="Assets\Scripts\MessageHandler.cs" />
      <Compile Include="Assets\Scripts\Networking.cs" />
+     <Compile Include="Assets\Scripts\OutMessage.cs" />
+     <Compile Include="Assets\Scripts\OutMessageBehaviour.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
@@ -73,7 +75,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>D:/Projecten/Unity-Client/Unity-Client/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Projecten/softwareDev/software_dev/Unity-Client/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
