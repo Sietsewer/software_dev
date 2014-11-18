@@ -11,7 +11,8 @@ public class LampColourManager : MonoBehaviour {
 
 	public enum Colours{ Rood, Oranje, Groen }
 	public Colours nextColour = Colours.Rood;
-	private Colours currentColour = Colours.Groen;
+	[HideInInspector]
+	public Colours currentColour = Colours.Groen;
 	void Start () {
 		rood = GameObject.Find("Lamp_R").renderer.material;
 		oranje = GameObject.Find("Lamp_O").renderer.material;

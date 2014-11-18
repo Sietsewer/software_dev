@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\ExtendedFlycam.cs" />
      <Compile Include="Assets\LampColourManager.cs" />
+     <Compile Include="Assets\LightTriggerController.cs" />
      <Compile Include="Assets\NavController.cs" />
      <Compile Include="Assets\Scripts\InMessage.cs" />
      <Compile Include="Assets\Scripts\InMessageBehaviour.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Scripts\Networking.cs" />
      <Compile Include="Assets\Scripts\OutMessage.cs" />
      <Compile Include="Assets\Scripts\OutMessageBehaviour.cs" />
+     <Compile Include="Assets\Spawner.cs" />
      <Compile Include="Assets\StopTrigger.cs" />
      <Compile Include="Assets\WheelUpdater.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
