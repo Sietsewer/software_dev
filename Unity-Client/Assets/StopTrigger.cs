@@ -14,7 +14,6 @@ public class StopTrigger : MonoBehaviour {
 			nav.Stop();
 		} else {
 			nav.Resume();
-			Debug.Log("CONTINUE");
 		}
 
 	}
@@ -24,7 +23,6 @@ public class StopTrigger : MonoBehaviour {
 			nav.Stop();
 		} else {
 			nav.Resume();
-			Debug.Log("CONTINUE");
 		}
 	}
 	// Update is called once per frame

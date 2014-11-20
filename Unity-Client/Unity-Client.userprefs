@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Kingdom\Repository\Assets\Scripts\Combat.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StopTrigger.cs">
     <Files>
-      <File FileName="..\..\..\Kingdom\Repository\Assets\Scripts\Combat.cs" Line="12" Column="22" />
-      <File FileName="..\..\..\Kingdom\Repository\Assets\Scripts\Player\Targeting.cs" Line="16" Column="3" />
+      <File FileName="Assets\Spawner.cs" Line="27" Column="42" />
+      <File FileName="Assets\NavController.cs" Line="53" Column="34" />
+      <File FileName="Assets\StopTrigger.cs" Line="16" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

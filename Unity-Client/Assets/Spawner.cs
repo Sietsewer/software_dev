@@ -4,26 +4,39 @@ using System.Collections;
 public class Spawner : MonoBehaviour {
 
 	public GameObject spawnMe;
-	public GameObject spawnMeInst;
+	private GameObject spawnMeInst;
 	public GameObject targetWaypoint;
 	private NavController navC;
 	public float SpawnEvery = 5.0f;
 	private float counter;
+	private GameObject[] wayPoints;
+	private int currentPoint;
 		// Use this for initialization
 	void Start () {
+		spawnMeInst = (GameObject)Instantiate(spawnMe);
+		spawnMeInst.SetActive(false);
+		wayPoints = new GameObject[this.transform.childCount];
+
+		int i = 0;
+		foreach(Transform child in this.transform){
+			wayPoints[i] = child.gameObject;
+			i++;
+		}
 
 		navC = spawnMeInst.GetComponent<NavController>();
 		navC.target = targetWaypoint.transform;
-		Contact
+		navC.setWaypoints(wayPoints);
+
+		spawnMeInst.transform.position = this.transform.position;
+		spawnMeInst.transform.rotation = this.transform.rotation;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		counter += Time.deltaTime;
-		spawnMeInst.transform.position = this.transform.position;
-		spawnMeInst.transform.rotation = this.transform.rotation;
 		if(counter > this.SpawnEvery){
-			Instantiate(spawnMeInst);
+			GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
+			spawnee.SetActive(true);
 			counter = 0.0f;
 		}
 	}
