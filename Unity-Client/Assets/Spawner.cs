@@ -15,13 +15,16 @@ public class Spawner : MonoBehaviour {
 	void Start () {
 		spawnMeInst = (GameObject)Instantiate(spawnMe);
 		spawnMeInst.SetActive(false);
-		wayPoints = new GameObject[this.transform.childCount];
+		wayPoints = new GameObject[targetWaypoint.transform.childCount];
 
 		int i = 0;
-		foreach(Transform child in this.transform){
+		foreach(Transform child in targetWaypoint.transform){
 			wayPoints[i] = child.gameObject;
 			i++;
 		}
+		/*for(int i = 0; i < targetWaypoint.transform.childCount; i++){
+			wayPoints[i] = targetWaypoint.transform.GetChild(i).gameObject;
+		}*/
 
 		navC = spawnMeInst.GetComponent<NavController>();
 		navC.target = targetWaypoint.transform;
@@ -37,6 +40,7 @@ public class Spawner : MonoBehaviour {
 		if(counter > this.SpawnEvery){
 			GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
 			spawnee.SetActive(true);
+			spawnee.GetComponent<NavController>().setWaypoints(wayPoints);
 			counter = 0.0f;
 		}
 	}

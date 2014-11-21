@@ -14,6 +14,9 @@ public class LampColourManager : MonoBehaviour {
 	[HideInInspector]
 	public Colours currentColour = Colours.Groen;
 	void Start () {
+		foreach(Transform child in transform){
+			//dothis
+		}
 		rood = GameObject.Find("Lamp_R").renderer.material;
 		oranje = GameObject.Find("Lamp_O").renderer.material;
 		groen = GameObject.Find("Lamp_G").renderer.material;
