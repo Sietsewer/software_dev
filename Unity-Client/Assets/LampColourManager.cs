@@ -15,11 +15,19 @@ public class LampColourManager : MonoBehaviour {
 	public Colours currentColour = Colours.Groen;
 	void Start () {
 		foreach(Transform child in transform){
-			//dothis
+			if(child.gameObject.name == "Lamp_R"){
+				rood = child.transform.renderer.material;
+			}
+			if(child.gameObject.name == "Lamp_O"){
+				oranje = child.transform.renderer.material;
+			}
+			if(child.gameObject.name == "Lamp_G"){
+				groen = child.transform.renderer.material;
+			}
 		}
-		rood = GameObject.Find("Lamp_R").renderer.material;
+		/*rood = GameObject.Find("Lamp_R").renderer.material;
 		oranje = GameObject.Find("Lamp_O").renderer.material;
-		groen = GameObject.Find("Lamp_G").renderer.material;
+		groen = GameObject.Find("Lamp_G").renderer.material;*/
 	}
 	public void changeColour (InMessage.Settings colours){
 		switch (colours){
