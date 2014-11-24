@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour {
 
+	public int maxAlive = 2;
+	public int alive = 0;
 	public GameObject spawnMe;
 	private GameObject spawnMeInst;
 	public GameObject targetWaypoint;
@@ -38,10 +40,19 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 		counter += Time.deltaTime;
 		if(counter > this.SpawnEvery){
-			GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
-			spawnee.SetActive(true);
-			spawnee.GetComponent<NavController>().setWaypoints(wayPoints);
-			counter = 0.0f;
+			if(alive < maxAlive){
+				GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
+				spawnee.SetActive(true);
+				NavController nav = spawnee.GetComponent<NavController>();
+				nav.setWaypoints(wayPoints);
+				nav.spawner = this;
+				counter = 0.0f;
+				alive++;
+			}
 		}
+	}
+
+	public void carDestroyed(){
+		alive--;
 	}
 }

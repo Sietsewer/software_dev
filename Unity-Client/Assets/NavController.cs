@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 
 public class NavController : MonoBehaviour {
+	public Spawner spawner;
 	public NavMeshAgent nav;
 	public Transform target;
 	public float mindist = 10.0f;
@@ -10,6 +11,7 @@ public class NavController : MonoBehaviour {
 	public GameObject brakeLineEnd;
 	private GameObject[] wayPoints;
 	private int wayPointIndex = 0;
+	public GameObject Explosion;
 	// Use this for initialization
 	void Start(){
 		//nav.SetDestination(this.target.position);
@@ -24,18 +26,23 @@ public class NavController : MonoBehaviour {
 				nextWaypoint();
 			}
 		} catch (IndexOutOfRangeException e){
+			GameObject g = (GameObject)Instantiate(Explosion);
+			g.transform.position = this.transform.position;
+			Explosion.SetActive(true);
+			Explosion.particleSystem.Play();
 			Destroy(this.gameObject);
 		}
 		RaycastHit hit;
-		if(Physics.Linecast(brakeLineStart.transform.position, brakeLineEnd.transform.position, out hit)){
-			nav.speed = hit.distance;
-			if(hit.distance < 3){
+		if(Physics.Linecast(brakeLineStart.transform.position,
+		                    brakeLineEnd.transform.position, out hit)){
+			nav.speed = hit.distance/2;
+			if(hit.distance < 5){
 				nav.speed = 0;
 			}
 		} else {
 			nav.speed = 15;
 		}
-		Debug.DrawLine(nav.steeringTarget, this.transform.position);
+		//Debug.DrawLine(nav.steeringTarget, this.transform.position);
 	}
 
 	public void setWaypoints(GameObject[] wayPoints){
@@ -51,5 +58,9 @@ public class NavController : MonoBehaviour {
 		} catch (NullReferenceException e){
 			Destroy(this.gameObject);
 		}
+	}
+
+	void OnDestroy(){
+		spawner.carDestroyed();
 	}
 }
