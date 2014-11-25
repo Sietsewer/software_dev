@@ -61,6 +61,10 @@ public class NavController : MonoBehaviour {
 	}
 
 	void OnDestroy(){
+		try{
 		spawner.carDestroyed();
+		} catch (NullReferenceException e){
+			Debug.Log("Car already destroyed!");
+		}
 	}
 }
