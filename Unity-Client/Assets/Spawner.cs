@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
-
 	public int maxAlive = 2;
 	public int alive = 0;
 	public GameObject spawnMe;

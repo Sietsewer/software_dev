@@ -23,10 +23,11 @@ public class Networking : MonoBehaviour
 		private float counter = 0.0f;
 		public float readDelay = 1.0f;
 		private bool socketReady = false;
-		public LampColourManager light;
+		public LightsController lights;
 
 		void Start ()
 		{
+				lights = new LightsController();
 				try {
 						clientSocket = new TcpClient (ip, int.Parse (port));
 						Debug.Log ("Connection made.");
@@ -42,6 +43,7 @@ public class Networking : MonoBehaviour
 						streamReader = new StreamReader (netStream);
 				}
 				socketReady = true;
+				
 		}
 	
 		// Update is called once per frame
@@ -64,7 +66,7 @@ public class Networking : MonoBehaviour
 
 				if (message.Length == 4) {
 						InMessage receivedMessage = MessageHandler.stringToInMessage (message);
-						this.light.changeColour (receivedMessage.setting);
+						this.lights.setLight(receivedMessage);
 
 						Debug.Log (MessageHandler.stringToInMessage (message).toString ());
 				} else {

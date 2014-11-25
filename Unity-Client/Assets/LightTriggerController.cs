@@ -3,11 +3,11 @@ using System.Collections;
 
 public class LightTriggerController : MonoBehaviour {
 
-	public Networking net;
+	private Networking net;
 	public OutMessageBehaviour omb;
 	// Use this for initialization
 	void Start () {
-		
+		net = GameObject.FindObjectOfType(typeof(Networking)) as Networking;
 	}
 
 	void OnTriggerEnter(Collider other){

@@ -9,6 +9,8 @@ public class LampColourManager : MonoBehaviour {
 	private Material oranje;
 	private Material groen;
 
+	public InMessageBehaviour LightID;
+
 	public enum Colours{ Rood, Oranje, Groen }
 	public Colours nextColour = Colours.Rood;
 	[HideInInspector]

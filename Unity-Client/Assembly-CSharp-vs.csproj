@@ -49,6 +49,7 @@
      <Compile Include="Assets\ExtendedFlycam.cs" />
      <Compile Include="Assets\LampColourManager.cs" />
      <Compile Include="Assets\LightTriggerController.cs" />
+     <Compile Include="Assets\LightsController.cs" />
      <Compile Include="Assets\NavController.cs" />
      <Compile Include="Assets\Scripts\InMessage.cs" />
      <Compile Include="Assets\Scripts\InMessageBehaviour.cs" />
