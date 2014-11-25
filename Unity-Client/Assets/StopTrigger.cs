@@ -25,6 +25,11 @@ public class StopTrigger : MonoBehaviour {
 			nav.Resume();
 		}
 	}
+
+	void OnTriggerExit(Collider other){
+		NavMeshAgent nav = other.gameObject.GetComponent<NavMeshAgent>();
+		nav.Resume();
+	}
 	// Update is called once per frame
 	void Update () {
 		switch(light.currentColour){
