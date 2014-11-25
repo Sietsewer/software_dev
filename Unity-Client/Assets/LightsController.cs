@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class LightsController {
@@ -13,12 +14,16 @@ public class LightsController {
 		
 	public void setLight(InMessage im){
 		foreach(LampColourManager light in lights){
+			try{
 			if(light.LightID.inMessage.vehicle  == im.vehicle &&
 			   light.LightID.inMessage.inbound  == im.inbound &&
 			   light.LightID.inMessage.outbound == im.outbound){
-				light.changeColour(im.setting);
+					light.changeColour(im.setting);
 				//Check if light is same as requested,
 				//set colour if so.
+			}
+			} catch (NullReferenceException e) {
+				Debug.Log(e.Message);
 			}
 		}
 	}

@@ -9,13 +9,15 @@ public class LampColourManager : MonoBehaviour {
 	private Material oranje;
 	private Material groen;
 
-	public InMessageBehaviour LightID;
+
 
 	public enum Colours{ Rood, Oranje, Groen }
 	public Colours nextColour = Colours.Rood;
 	[HideInInspector]
+	public InMessageBehaviour LightID;
 	public Colours currentColour = Colours.Groen;
 	void Start () {
+		LightID = gameObject.GetComponent<InMessageBehaviour>();
 		foreach(Transform child in transform){
 			if(child.gameObject.name == "Lamp_R"){
 				rood = child.transform.renderer.material;
@@ -34,13 +36,13 @@ public class LampColourManager : MonoBehaviour {
 	public void changeColour (InMessage.Settings colours){
 		switch (colours){
 		case InMessage.Settings.Rood:
-			changeColour(Colours.Rood);
+			nextColour = Colours.Rood;
 			break;
 		case InMessage.Settings.Oranje:
-			changeColour(Colours.Oranje);
+			nextColour = Colours.Oranje;
 			break;
 		case InMessage.Settings.Groen:
-			changeColour(Colours.Groen);
+			nextColour = Colours.Groen;
 			break;
 		}
 	}
