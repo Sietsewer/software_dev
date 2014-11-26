@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NavController : MonoBehaviour {
 	public Spawner spawner;
@@ -15,6 +16,14 @@ public class NavController : MonoBehaviour {
 	// Use this for initialization
 	void Start(){
 		//nav.SetDestination(this.target.position);
+		List<GameObject> cars = new List<GameObject>();
+		foreach(Transform child in this.transform){
+			if(child.gameObject.name.Contains("car_")){
+				cars.Add(child.gameObject);
+			}
+		}
+		cars[UnityEngine.Random.Range(0, cars.Count)].SetActive(true);
+
 	}
 
 	// Update is called once per frame
