@@ -12,7 +12,7 @@ public class NavController : MonoBehaviour {
 	public GameObject brakeLineEnd;
 	private GameObject[] wayPoints;
 	private int wayPointIndex = 0;
-	public GameObject Explosion;
+	//public GameObject Explosion;
 	// Use this for initialization
 	void Start(){
 		//nav.SetDestination(this.target.position);
@@ -35,10 +35,10 @@ public class NavController : MonoBehaviour {
 				nextWaypoint();
 			}
 		} catch (IndexOutOfRangeException e){
-			GameObject g = (GameObject)Instantiate(Explosion);
-			g.transform.position = this.transform.position;
-			Explosion.SetActive(true);
-			Explosion.particleSystem.Play();
+			//GameObject g = (GameObject)Instantiate(Explosion);
+			//g.transform.position = this.transform.position;
+			//Explosion.SetActive(true);
+			//Explosion.particleSystem.Play();
 			Destroy(this.gameObject);
 		}
 		RaycastHit hit;

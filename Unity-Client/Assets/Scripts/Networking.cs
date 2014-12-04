@@ -79,13 +79,15 @@ public class Networking : MonoBehaviour
 				Debug.Log ("Forcing read message...");
 				receiveMessage (streamReader.ReadLine ());
 		}
-	
+
 		public void sendMessage (string message)
 		{
-				if (!socketReady) 
+				if (!socketReady) {
 						return;
+		}
 				Debug.Log ("SENDING: " + message);
 				streamWriter.WriteLine (message);
 				streamWriter.Flush ();
+				
 		}
 }

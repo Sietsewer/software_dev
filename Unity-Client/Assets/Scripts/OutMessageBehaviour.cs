@@ -6,6 +6,7 @@ public class OutMessageBehaviour : MonoBehaviour {
 	public OutMessage.Direction inBound;
 	public OutMessage.Direction outBound;
 	public OutMessage.Vehicle vehicle;
+	public int count;
 	
 	public OutMessage outMessage;
 	
@@ -21,5 +22,6 @@ public class OutMessageBehaviour : MonoBehaviour {
 		outMessage.outbound = this.outBound;
 		outMessage.num	= this.num;
 		outMessage.vehicle = this.vehicle;
+		outMessage.count = this.count;
 	}
 }
