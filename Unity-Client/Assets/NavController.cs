@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class NavController : MonoBehaviour {
 	public bool useBreakLine = true;
+	private float originalSpeed;
 	public Spawner spawner;
 	public NavMeshAgent nav;
 	public Transform target;
@@ -24,7 +25,7 @@ public class NavController : MonoBehaviour {
 			}
 		}
 		cars[UnityEngine.Random.Range(0, cars.Count)].SetActive(true);
-
+		originalSpeed = nav.speed;
 	}
 
 	// Update is called once per frame
@@ -51,7 +52,7 @@ public class NavController : MonoBehaviour {
 				nav.speed = 0;
 			}
 		} else {
-			nav.speed = 15;
+			nav.speed = originalSpeed;
 		}
 		}
 		//Debug.DrawLine(nav.steeringTarget, this.transform.position);
