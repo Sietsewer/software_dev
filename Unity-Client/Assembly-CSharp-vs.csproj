@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Networking.cs" />
      <Compile Include="Assets\Scripts\OutMessage.cs" />
      <Compile Include="Assets\Scripts\OutMessageBehaviour.cs" />
+     <Compile Include="Assets\SpawnManager.cs" />
      <Compile Include="Assets\Spawner.cs" />
      <Compile Include="Assets\StopTrigger.cs" />
      <Compile Include="Assets\WheelUpdater.cs" />

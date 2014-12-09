@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class NavController : MonoBehaviour {
+	public bool useBreakLine = true;
 	public Spawner spawner;
 	public NavMeshAgent nav;
 	public Transform target;
@@ -41,6 +42,7 @@ public class NavController : MonoBehaviour {
 			//Explosion.particleSystem.Play();
 			Destroy(this.gameObject);
 		}
+		if(useBreakLine){
 		RaycastHit hit;
 		if(Physics.Linecast(brakeLineStart.transform.position,
 		                    brakeLineEnd.transform.position, out hit)){
@@ -50,6 +52,7 @@ public class NavController : MonoBehaviour {
 			}
 		} else {
 			nav.speed = 15;
+		}
 		}
 		//Debug.DrawLine(nav.steeringTarget, this.transform.position);
 	}
