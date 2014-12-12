@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class NavController : MonoBehaviour {
 	public bool useBreakLine = true;
+  public float minBreakSpeed = 0.0f;
 	private float originalSpeed;
 	public Spawner spawner;
 	public NavMeshAgent nav;
@@ -47,9 +48,9 @@ public class NavController : MonoBehaviour {
 		RaycastHit hit;
 		if(Physics.Linecast(brakeLineStart.transform.position,
 		                    brakeLineEnd.transform.position, out hit)){
-			nav.speed = hit.distance/2;
+			nav.speed = hit.distance/2 > minBreakSpeed ? hit.distance/2 : minBreakSpeed;
 			if(hit.distance < 5){
-				nav.speed = 0;
+				nav.speed = minBreakSpeed;
 			}
 		} else {
 			nav.speed = originalSpeed;
