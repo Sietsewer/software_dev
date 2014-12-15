@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Interface : MonoBehaviour
 {
+	private LightsController lights;
+
 		public string message = "Default Message.";
 		public bool sendString;
 		public bool sendOutMessage;
@@ -15,6 +17,7 @@ public class Interface : MonoBehaviour
 		{
 				net = gameObject.GetComponent<Networking> ();
 				Debug.Log (MessageHandler.stringToInMessage ("NOAR").toString ());
+		lights = new LightsController();
 		}
 	
 		// Update is called once per frame
@@ -43,7 +46,8 @@ public class Interface : MonoBehaviour
 						}
 				}
 				if (GUI.Button (new Rect (10, 70, 100, 50), "Force read")) {
-						net.forceRead ();
+						//net.forceRead ();
+			lights.printAll();
 				}
 		}
 }
