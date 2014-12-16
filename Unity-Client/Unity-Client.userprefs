@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MessageHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BarrierController.cs">
     <Files>
-      <File FileName="Assets\Scripts\MessageHandler.cs" Line="11" Column="3" />
+      <File FileName="Assets\BarrierController.cs" Line="9" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
