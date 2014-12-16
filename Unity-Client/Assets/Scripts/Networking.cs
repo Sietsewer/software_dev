@@ -53,7 +53,7 @@ public class Networking : MonoBehaviour
 				if (this.counter > this.readDelay && socketReady) {
 						this.counter = 0;
 						if (connected && netStream.DataAvailable) { // Order is important, else there be errors.
-								Debug.Log ("Reading message...");
+								//Debug.Log ("Reading message...");
 								receiveMessage (streamReader.ReadLine ());
 						}
 				}
@@ -70,7 +70,7 @@ public class Networking : MonoBehaviour
 
 						Debug.Log (MessageHandler.stringToInMessage (message).toString ());
 				} else {
-						Debug.Log ("RECEIVED: " + message);
+						//Debug.Log ("RECEIVED: " + message);
 				}
 		}
 		
@@ -85,7 +85,7 @@ public class Networking : MonoBehaviour
 				if (!socketReady) {
 						return;
 		}
-				Debug.Log ("SENDING: " + message);
+				//Debug.Log ("SENDING: " + message);
 				streamWriter.WriteLine (message);
 				streamWriter.Flush ();
 				
