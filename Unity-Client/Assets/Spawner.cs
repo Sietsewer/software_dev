@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
+	public bool selfSpawn = true;
+	private Networking net;
+	public OutMessageBehaviour trainMessage;
+	public bool isTrain = false;
+	public CrossingController cc;
 	public int maxAlive = 2;
 	public int alive = 0;
 	public GameObject spawnMe;
@@ -12,6 +17,21 @@ public class Spawner : MonoBehaviour {
 	private float counter;
 	private GameObject[] wayPoints;
 	private int currentPoint;
+
+	void sendMessage (){
+		if(isTrain){
+			net = GameObject.FindObjectOfType(typeof(Networking)) as Networking;
+			OutMessage om = new OutMessage ();
+			om.num = trainMessage.num;
+			om.inbound = trainMessage.inBound;
+			om.outbound = trainMessage.outBound;
+			om.vehicle = trainMessage.vehicle;
+			trainMessage.count = 0;
+			om.count = 0;
+			net.sendMessage (om.toMessage ());
+		}
+	}
+
 		// Use this for initialization
 	void Start () {
 		spawnMeInst = (GameObject)Instantiate(spawnMe);
@@ -37,18 +57,27 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		counter += Time.deltaTime;
-		if(counter > this.SpawnEvery){
-			if(alive < maxAlive){
-				spawn ();
-				counter = 0.0f;
-				alive++;
+		if(selfSpawn){
+		if(maxAlive >= 1){
+			counter += Time.deltaTime;
+			if(counter > this.SpawnEvery){
+				if(alive < maxAlive){
+					spawn ();
+					counter = 0.0f;
+					alive++;
+				}
 			}
+		}
 		}
 	}
 
 	public void spawn(){
 		GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
+		if(isTrain){
+			TrainHandler th = (TrainHandler)spawnee.GetComponent(typeof(TrainHandler));
+			th.cc = this.cc;
+			sendMessage();
+		}
 		spawnee.SetActive(true);
 		NavController nav = spawnee.GetComponent<NavController>();
 		nav.setWaypoints(wayPoints);

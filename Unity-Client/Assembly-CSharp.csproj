@@ -39,14 +39,15 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>S:/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>S:/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BarrierController.cs" />
+     <Compile Include="Assets\ClearZoneTrigger.cs" />
      <Compile Include="Assets\CrossingController.cs" />
      <Compile Include="Assets\ExtendedFlycam.cs" />
      <Compile Include="Assets\LampColourManager.cs" />
@@ -62,8 +63,10 @@
      <Compile Include="Assets\Scripts\OutMessage.cs" />
      <Compile Include="Assets\Scripts\OutMessageBehaviour.cs" />
      <Compile Include="Assets\SpawnManager.cs" />
+     <Compile Include="Assets\SpawnRoulette.cs" />
      <Compile Include="Assets\Spawner.cs" />
      <Compile Include="Assets\StopTrigger.cs" />
+     <Compile Include="Assets\TrainHandler.cs" />
      <Compile Include="Assets\WheelUpdater.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
@@ -87,7 +90,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>S:/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
