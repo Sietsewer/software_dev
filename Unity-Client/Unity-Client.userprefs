@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BarrierController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SpawnManager.cs">
     <Files>
+      <File FileName="Assets\SpawnManager.cs" Line="59" Column="33" />
+      <File FileName="Assets\Scripts\Interface.cs" Line="32" Column="12" />
       <File FileName="Assets\BarrierController.cs" Line="9" Column="26" />
+      <File FileName="Assets\Spawner.cs" Line="38" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

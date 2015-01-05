@@ -40,15 +40,19 @@ public class Spawner : MonoBehaviour {
 		counter += Time.deltaTime;
 		if(counter > this.SpawnEvery){
 			if(alive < maxAlive){
-				GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
-				spawnee.SetActive(true);
-				NavController nav = spawnee.GetComponent<NavController>();
-				nav.setWaypoints(wayPoints);
-				nav.spawner = this;
+				spawn ();
 				counter = 0.0f;
 				alive++;
 			}
 		}
+	}
+
+	public void spawn(){
+		GameObject spawnee = (GameObject)Instantiate(spawnMeInst);
+		spawnee.SetActive(true);
+		NavController nav = spawnee.GetComponent<NavController>();
+		nav.setWaypoints(wayPoints);
+		nav.spawner = this;
 	}
 
 	public void carDestroyed(){
