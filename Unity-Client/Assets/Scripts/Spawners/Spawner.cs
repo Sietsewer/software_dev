@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
+	public bool messageOnTrainDelete = false;
 	public bool selfSpawn = true;
 	private Networking net;
 	public OutMessageBehaviour trainMessage;
@@ -18,7 +19,7 @@ public class Spawner : MonoBehaviour {
 	private GameObject[] wayPoints;
 	private int currentPoint;
 
-	void sendMessage (){
+	void sendMessage (int count){
 		if(isTrain){
 			net = GameObject.FindObjectOfType(typeof(Networking)) as Networking;
 			OutMessage om = new OutMessage ();
@@ -26,8 +27,8 @@ public class Spawner : MonoBehaviour {
 			om.inbound = trainMessage.inBound;
 			om.outbound = trainMessage.outBound;
 			om.vehicle = trainMessage.vehicle;
-			trainMessage.count = 0;
-			om.count = 0;
+			trainMessage.count = count;
+			om.count = count;
 			net.sendMessage (om.toMessage ());
 		}
 	}
@@ -76,7 +77,7 @@ public class Spawner : MonoBehaviour {
 		if(isTrain){
 			TrainHandler th = (TrainHandler)spawnee.GetComponent(typeof(TrainHandler));
 			th.cc = this.cc;
-			sendMessage();
+			sendMessage(1);
 		}
 		spawnee.SetActive(true);
 		NavController nav = spawnee.GetComponent<NavController>();
@@ -86,5 +87,8 @@ public class Spawner : MonoBehaviour {
 
 	public void carDestroyed(){
 		alive--;
+		if(isTrain && messageOnTrainDelete){
+			sendMessage(0);
+		}
 	}
 }

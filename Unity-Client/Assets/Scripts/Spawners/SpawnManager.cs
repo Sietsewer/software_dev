@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour {
 
 	void OnGUI ()
 	{
-		if (GUI.Button (new Rect (50, Screen.height - 35, 170, 20), "Spawn Manager")) {
+		if (GUI.Button (new Rect (50, Screen.height - 35, 170, 20), "Spawn Manager")||(Input.GetKey(KeyCode.Escape)&&showTab)) {
 			showTab = !showTab;
 		}
 		if(showTab){
