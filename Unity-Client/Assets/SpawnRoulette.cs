@@ -19,7 +19,7 @@ public class SpawnRoulette : MonoBehaviour {
 		countUp += Time.deltaTime;
 		if(countUp > delay){
 			Spawner s = pool[Random.Range( 0, pool.Length )];
-			if(s.maxAlive > s.alive) s.spawn();
+			if((s.maxAlive > s.alive)&&!s.isTrain) s.spawn();
 			countUp = 0;
 		}
 	}

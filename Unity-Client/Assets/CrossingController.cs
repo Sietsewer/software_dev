@@ -36,7 +36,7 @@ public class CrossingController : MonoBehaviour {
 
 	private void setDrive (bool value){
 		foreach(StopTrigger trigger in stopTriggers){
-			trigger.stop = !value;
+			trigger.stopTrain = !value;
 		}
 	}
 
