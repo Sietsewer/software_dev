@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class LightTriggerController : MonoBehaviour {
-
+	public bool quickTrigger = false;
 	private Networking net;
 	public OutMessageBehaviour omb;
 	public float minDelay = 0.2f;
@@ -35,7 +35,7 @@ public class LightTriggerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timeCount += Time.deltaTime;
-		if(timeCount > minDelay && prevCount != count){
+		if(quickTrigger || (timeCount > minDelay && prevCount != count)){
 			sendMessage();
 			prevCount = count;
 			timeCount = 0;

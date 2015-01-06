@@ -1,14 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\NavController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Triggers\LightTriggerController.cs">
     <Files>
-      <File FileName="Assets\StopTrigger.cs" Line="20" Column="3" />
-      <File FileName="Assets\CrossingController.cs" Line="39" Column="31" />
-      <File FileName="Assets\Spawner.cs" Line="88" Column="11" />
-      <File FileName="Assets\Scripts\OutMessageBehaviour.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\InMessageBehaviour.cs" Line="14" Column="32" />
-      <File FileName="Assets\NavController.cs" Line="78" Column="3" />
-      <File FileName="Assets\SpawnRoulette.cs" Line="22" Column="41" />
+      <File FileName="Assets\Scripts\Spawners\SpawnManager.cs" Line="23" Column="64" />
+      <File FileName="Assets\Scripts\Triggers\TrainHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Triggers\ClearZoneTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Vehicles\NavController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Triggers\CrossingController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Spawners\Spawner.cs" Line="31" Column="21" />
+      <File FileName="Assets\Scripts\Triggers\LightTriggerController.cs" Line="37" Column="3" />
+      <File FileName="Assets\Scripts\Triggers\StopTrigger.cs" Line="10" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
