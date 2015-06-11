@@ -9,6 +9,12 @@ public class LampColourManager : MonoBehaviour {
 	private Material oranje;
 	private Material groen;
 
+	public bool go = false;
+	private bool stopping = false;
+	private bool stop = true;
+	private float count = 0.0f;
+	private float stopTime = 3.0f;
+
 	public enum Colours{ Rood, Oranje, Groen }
 	public Colours nextColour = Colours.Rood;
 	[HideInInspector]
@@ -19,14 +25,13 @@ public class LampColourManager : MonoBehaviour {
 		LightID = gameObject.GetComponent<InMessageBehaviour>();
 		foreach(Transform child in transform){
 			if(child.gameObject.name == "Lamp_R"){
-				rood = child.transform.renderer.material;
-
+				rood = child.transform.GetComponent<Renderer>().material;
 			}
 			if(child.gameObject.name == "Lamp_O"){
-				oranje = child.transform.renderer.material;
+				oranje = child.transform.GetComponent<Renderer>().material;
 			}
 			if(child.gameObject.name == "Lamp_G"){
-				groen = child.transform.renderer.material;
+				groen = child.transform.GetComponent<Renderer>().material;
 			}
 		}
 
@@ -65,6 +70,25 @@ public class LampColourManager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		if(go){
+			nextColour = Colours.Groen;
+			stop = false;
+		} else {
+			if(!stop){
+				stopping = true;
+				nextColour = Colours.Oranje;
+			}
+		}
+		if(stopping){
+			count += Time.deltaTime;
+			if(count > stopTime){
+				stop = true;
+				stopping = false;
+				count = 0.0f;
+				nextColour = Colours.Rood;
+			}
+		}
+
 		if(nextColour != currentColour){
 			changeColour(nextColour);
 			currentColour = nextColour;
