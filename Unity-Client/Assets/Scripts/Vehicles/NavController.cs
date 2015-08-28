@@ -3,22 +3,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Controls vehicle navigation. Manages vehicle waypoints.
+/// </summary>
 public class NavController : MonoBehaviour {
+	#region variables
+	//Vars for detecting other vehicles.
 	public bool useBreakLine = true;
-  public float minBreakSpeed = 0.0f;
-	private float originalSpeed;
-	public Spawner spawner;
-	public NavMeshAgent nav;
-	public Transform target;
+  	public float minBreakSpeed = 0.0f;
 	public float mindist = 10.0f;
 	public GameObject brakeLineStart;
 	public GameObject brakeLineEnd;
+
+	//Vars for navigation
+	public Spawner spawner;
+	public NavMeshAgent nav;
+	private float originalSpeed;
+	public Transform target;
 	private GameObject[] wayPoints;
 	private int wayPointIndex = 0;
-	//public GameObject Explosion;
-	// Use this for initialization
+	#endregion
+
 	void Start(){
-		//nav.SetDestination(this.target.position);
+		//Car prefab has three (disabled) car models. This picks a random one and enables it. Result is random model.
 		List<GameObject> cars = new List<GameObject>();
 		foreach(Transform child in this.transform){
 			if(child.gameObject.name.Contains("car_")){
@@ -32,39 +39,42 @@ public class NavController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		try{
-			if(Vector3.Distance(wayPoints[wayPointIndex].transform.position, transform.position) > mindist){
-				//Nothing as of yet
-			} else {
+			//Switches to next waypoint if in range.
+			if(Vector3.Distance(wayPoints[wayPointIndex].transform.position, transform.position) < mindist){
 				nextWaypoint();
 			}
+			//Deletes vehicle when last waypoint is reached.
 		} catch (IndexOutOfRangeException e){
-			//GameObject g = (GameObject)Instantiate(Explosion);
-			//g.transform.position = this.transform.position;
-			//Explosion.SetActive(true);
-			//Explosion.particleSystem.Play();
 			Destroy(this.gameObject);
 		}
 		if(useBreakLine){
-		RaycastHit hit;
-		if(Physics.Linecast(brakeLineStart.transform.position,
+			RaycastHit hit;
+			//Casts ray in front of vehicle to check for other vehicles. If so, brake the vehicle.
+			if(Physics.Linecast(brakeLineStart.transform.position,
 		                    brakeLineEnd.transform.position, out hit)){
-			nav.speed = hit.distance/2 > minBreakSpeed ? hit.distance/2 : minBreakSpeed;
-			if(hit.distance < 5){
-				nav.speed = minBreakSpeed;
+				nav.speed = hit.distance/2 > minBreakSpeed ? hit.distance/2 : minBreakSpeed;
+				if(hit.distance < 5){
+					nav.speed = minBreakSpeed;
+				}
+			} else {
+				nav.speed = originalSpeed;
 			}
-		} else {
-			nav.speed = originalSpeed;
 		}
-		}
-		//Debug.DrawLine(nav.steeringTarget, this.transform.position);
 	}
 
+	/// <summary>
+	/// Sets the waypoints for the vehicle to travel in its lifetime.
+	/// </summary>
+	/// <param name="wayPoints">Waypoints.</param>
 	public void setWaypoints(GameObject[] wayPoints){
 		this.wayPoints = wayPoints;
 		wayPointIndex = 0;
 		nav.SetDestination(wayPoints[wayPointIndex].transform.position);
 	}
 
+	/// <summary>
+	/// Makes the vehicle drive to its next waypoint in line.
+	/// </summary>
 	private void nextWaypoint(){
 		wayPointIndex++;
 		try{
@@ -74,6 +84,9 @@ public class NavController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Calls back to spawner for an accurate vehicle count spawned by spawner.
+	/// </summary>
 	void OnDestroy(){
 		if(spawner != null)spawner.carDestroyed();
 	}
